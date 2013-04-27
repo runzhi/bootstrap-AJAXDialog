@@ -16,7 +16,7 @@ var efpDialog = function(requestUrl, target) {
     '                    <h1 id="efpModalLabel">Loading</h1>' +
     '                </div>' +
     '                <div class="modal-body">' +
-    '                    <p><img src="/efp/images/loader.gif" alt="Loading" >' +
+    '                    <p><img src="img/loader.gif" alt="Loading" >' +
     '                    </p>' +
     '                </div>' +
     '                <div class="modal-footer">' +
@@ -67,6 +67,9 @@ var efpDialog = function(requestUrl, target) {
         });
     }
     $.get(requestUrl, function(data) {
+    	if($.isXMLDoc(data)){
+    		data = XMLtoString(data);
+    	}
         $data = $($.trim(data));
         $("#efpModal").find("#efpModalLabel").html($data.find("header").html());
         $("#efpModal").find(".modal-body").html($data.find("content").html());
@@ -77,4 +80,17 @@ var efpDialog = function(requestUrl, target) {
             $('#efpModal').find("form").validate();
         }catch(e){}
     });
+}
+function XMLtoString(elem){
+    var serialized;
+    try {
+        // XMLSerializer exists in current Mozilla browsers                                                                            
+        serializer = new XMLSerializer();                                                                                              
+        serialized = serializer.serializeToString(elem);                                                                               
+    }                                                                                                                                  
+    catch (e){
+        // Internet Explorer has a different approach to serializing XML                                                               
+        serialized = elem.xml;                                                                                                         
+    }    
+    return serialized;                                                                                                                 
 }

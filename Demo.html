@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<link href="css/bootstrap.css" rel="stylesheet" rev="stylesheet"  type="text/css">
+
+		<meta content="text/html; charset=UTF-8" />
+
+		<script type="text/javascript" src= "js/jquery-1.8.2.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+		<script type="text/javascript" src="ajaxDialog.js"></script>
+
+		<script type="text/javascript">
+			$(function() {
+				$("#button1").click(function() {
+					efpDialog("data.xml", function() {
+						alert("Good, you click the submit, but I am not so good to have the data right now, I will be awsome next");
+					});
+
+				});
+			});
+
+		</script>
+	</head>
+	<body>
+
+		<button id="button1" type="button" class="btn btn-primary">
+			CLick it
+		</button>
+
+	</body>
+</html>

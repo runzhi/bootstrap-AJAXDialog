@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<popup>
+	<header>Title of the dialog</header>
+	<content>
+		<h3>Why you want ajax dialog?</h3>
+		<textarea name="reason" placeholder= "Reason here"></textarea>
+	</content>
+	<confirm_button_text>I want to submit it</confirm_button_text>
+	
+	<script>
+	</script>
+</popup>
